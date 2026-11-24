@@ -109,7 +109,15 @@ L’**intégration continue** (CI) vérifie automatiquement chaque modification 
 
 ## Résultats obtenus
 
-Lors de la première exécution locale sous macOS avec Python 3.12.16 et pytest 9.2.0, les quatre tests ont réussi.
+Les trois essais locaux ont été exécutés sous macOS avec Python 3.12.16 et pytest 9.2.0.
+
+| Scénario | Résultat local | Vérification GitHub Actions |
+|---|---|---|
+| A — Version initiale | 4 réussis | Trois jobs réussis. Les deux archives téléchargées contiennent chacune le fichier `app.txt` attendu. [Exécution A](https://github.com/AyoubAmeur-crypto/TP-Simulation-CICD/actions/runs/45506051228) |
+| B — Erreur volontaire | 1 échec, 3 réussis | Le journal indique `assert 14.0 == 20`. Les deux déploiements sont ignorés et le nombre d’artefacts est nul. [Exécution B](https://github.com/AyoubAmeur-crypto/TP-Simulation-CICD/actions/runs/45506339485) |
+| C — Correction | 4 réussis | L’exécution intitulée **Correction du test de moyenne** donne le détail des jobs et des artefacts après rétablissement de la valeur 14. [Historique du workflow](https://github.com/AyoubAmeur-crypto/TP-Simulation-CICD/actions/workflows/cicd.yml) |
+
+[![État du dernier push sur main](https://github.com/AyoubAmeur-crypto/TP-Simulation-CICD/actions/workflows/cicd.yml/badge.svg?branch=main&event=push)](https://github.com/AyoubAmeur-crypto/TP-Simulation-CICD/actions/workflows/cicd.yml)
 
 ## Conclusion
 
